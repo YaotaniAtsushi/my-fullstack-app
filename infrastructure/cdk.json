@@ -17,6 +17,10 @@
     ]
   },
   "context": {
+    "systemName": "yaoApp",
+    "envType": "dev",
+    "region": "ap-northeast-1",
+    "owner": "yaotani",
     "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
     "@aws-cdk/core:checkSecretUsage": true,
     "@aws-cdk/core:target-partitions": [

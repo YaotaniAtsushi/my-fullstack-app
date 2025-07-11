@@ -11,9 +11,4 @@ if (!env) {
   throw new Error(`環境 '${envType}' が見つかりません。利用可能な環境: ${Object.keys(environments).join(', ')}`);
 }
 
-new MainStack(app, `${env.envType}-MainStack`, {
-  env: {
-    account: env.account,
-    region: env.region
-  }
-});
+new MainStack(app, `${env.envType}-MainStack`, env, {});

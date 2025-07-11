@@ -1,5 +1,6 @@
 import { Construct } from 'constructs';
 import * as cdk from 'aws-cdk-lib'
+import { Environment as CustomEnvironment } from '../../config/environmets';
 
 export interface ResourceContext {
     systemName: string;
@@ -12,7 +13,7 @@ export abstract class Resource {
     constructor() {}
 
     // リソース作成
-    abstract createResources(scope: Construct, resource?: Resource): void
+    abstract createResources(scope: Construct, env?: CustomEnvironment, resource?: Resource): void
 
     // リソース名を生成
     protected createResourceName(scope: Construct, originalName: string): string {
@@ -78,7 +79,7 @@ export abstract class Resource {
         }
     }
 
-    // リソース作成のログ出力してみる
+    // リソース作成のログ出力してみる(L2だとあんまり意味ないかも)
     protected logResourceCreation(resourceType: string, resourceName: string): void {
         console.log(`✅ Created ${resourceType}: ${resourceName}`);
     }
